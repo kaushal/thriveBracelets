@@ -12,6 +12,9 @@
   <title>Inspirational, stylish medical alert and breast cancer bracelets</title>
 
   <!-- Included CSS Files -->
+  <!-- Included CSS Files -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="galleria/galleria-1.2.8.min.js"></script>
   <link rel="stylesheet" href="foundation/stylesheets/foundation.css">
 
 </head>
@@ -37,7 +40,18 @@
   </div>
 
   <!-- End Nav and Banner -->
-
+  <style>
+    #galleria{ width: 700px; height: 400px; background: #000 }
+</style>  
+  <div id="galleria">
+          <img src="images/photo1.jpeg">
+          <img src="images/photo2.jpeg">
+          <img src="images/photo3.png">
+      </div>
+      <script>
+          Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+          Galleria.run('#galleria');
+      </script>
 
   <!-- Main Content Section -->
 
