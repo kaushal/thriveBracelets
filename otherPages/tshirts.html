@@ -1,0 +1,212 @@
+<DOCCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Inspirational, stylish medical alert and breast cancer bracelets</title>
+
+  <!-- Included CSS Files -->
+  <!-- Included CSS Files -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="galleria/galleria-1.2.8.min.js"></script>
+  <link rel="stylesheet" href="foundation/stylesheets/foundation.css">
+  
+	<style>
+			
+		.home:hover {background:#2BA6CB;}
+		
+		body {background-image:url('../images/logobackground.jpg');}
+		
+		
+		.four mobile-two columns{background:white;}
+
+		.selectedTab {background:#228B22; font-weight:bold; -moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000; box-shadow: 3px 3px 4px #000;	/* For IE 8 */	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		* For IE 5.5 - 7 */ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+		margin-bottom:10px;
+			}
+			
+		.custBtn{background:#5DA423; font-weight:bold;  border: 1px solid #396516;
+			-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000; box-shadow: 3px 3px 4px #000;	/* For IE 8 */	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	margin-bottom:10px;
+			}
+			
+			.custBtn:hover{background-color: #457A1A;}
+	
+	</style>
+	
+	<script>
+		
+		//may need to fix, if user goes from cart back to webpage need to keep values
+		//if user leaves webpage and comes back, may need to keep values
+		//need to add product hover behavior
+			
+		$(document).ready(
+			function hoverOverProduct(){
+				$(".productPanel").hover(function(){
+					
+					var x=$(this).find('img');
+					var y=$(this).find('div');
+					$(x).css("opacity", ".7");
+					$(y).css("background-color","#e6e6e6");
+								
+					
+				},
+				function(){
+					var x=$(this).find('img');
+					var y=$(this).find('div')
+					$(x).css("opacity", "1");
+					$(y).css("background-color","#f2f2f2");
+				});
+			});
+		$(document).ready(
+			function moveToProductPane(){
+				$(".productPanel").click(function(){
+					var detPane=$("#detailsPane");
+					var hiddenFields=$("#productDetails");
+					
+					var productName=$(this).find('h5')[0].innerText;
+					var price=$(this).find('h6')[0].innerText;
+					var prodPicture=$(this).find('img');
+					
+					$(detPane).find("h3")[0].innerText=productName;
+					$(detPane).find("h5")[0].innerText=price;
+					$(hiddenFields).css("display", "block");
+					
+					if (productName.toLowerCase().indexOf("alert") >= 0)
+					{
+						var engr=$("#engravingForm");
+						var noengr=$("#nonEngravingForm");
+						$(engr).css("display", "none");
+						$(engr).css("display", "block");
+						$(noengr).css("display", "none");
+						//detPane.childNodes[3].style.height="400px";
+						console.log(detPane);
+						
+					}
+					else
+					{
+						var engr=$("#engravingForm");
+						var noengr=$("#nonEngravingForm");
+						$(noengr).css("display", "none");
+						$(noengr).css("display", "block");
+						$(engr).css("display", "none");
+						$(detPane).css("height","330px");
+						//detPane.childNodes[3].style.height="330px";
+						console.log(detPane);
+					}
+					
+					
+						
+					
+				});
+			});
+		
+		
+		
+		function moveToPane(idname, check){//add a field saying what the height of the div should be after product click
+		//370 px for engraving, 250 px for non
+			//Details pane
+			var detPane=document.getElementById("detailsPane");
+			var hiddenFields=document.getElementById("productDetails");
+			var hiddenButton=document.getElementById("cartBtn");
+			
+			//product pane
+			var product=document.getElementById(idname);
+			var productName=product.getElementsByTagName("h5")[0].innerText;
+			var price=product.getElementsByTagName("h6")[0].innerText;
+			var pic=product.getElementsByTagName("img");
+			
+			
+			console.log(detPane.childNodes);
+			//actions
+			detPane.getElementsByTagName("h3")[0].innerText=productName;
+			hiddenFields.style.display="block";
+			
+			detPane.getElementsByTagName("h5")[0].innerText=price;
+			
+			if(check==1)
+			{
+				var engr=document.getElementById("engravingForm");
+				var nonengr=document.getElementById("nonEngravingForm");
+				engr.style.display="none";
+				engr.style.display="block";
+				nonengr.style.display="none";
+				detPane.childNodes[3].style.height="400px";
+
+			}
+			else{
+				var nonengr=document.getElementById("nonEngravingForm");
+				var engr=document.getElementById("engravingForm");
+				nonengr.style.display="none";
+				nonengr.style.display="block";
+				engr.style.display="none";
+				detPane.childNodes[3].style.height="330px";
+
+				
+			}
+			
+			
+		}
+		  
+	</script> 
+	
+</head>
+<body>
+
+  <!-- Nav and Banner -->
+
+	<div class="row" style="margin-top:5%;">
+		<div class="twelve columns">
+			<dl class="tabs six-up">
+				<dd><a href="../index3.html"><font color="black">Home</font></a></dd>
+				<dd class="selectedTab"><a href="products.html"><font color="white">Products</font></a></dd>
+				<dd><a href="aboutUS.html"><font color="black">About Us</font></a></dd>
+				<dd><a href="faqs.html"><font color="black">Faqs</font></a></dd>
+				<dd><a href="otherPages/faqs.html"><font color="black">Healthy Recipes</font></a></dd>
+				<dd><a href="otherPages/faqs.html"><font color="black">Inspirational People</font></a></dd>
+			</dl>
+       	</div>
+  </div>
+	<div class="row" style="margin-top:1%;">
+		<div class="twelve columns">
+			<dl class="tabs six-up">
+				<dd><a href="../index3.html"><font color="black"></font></a></dd>
+				<dd><a href="products.html"><font color="white">Bracelets</font></a></dd>
+				<dd class="selectedTab"><a href="aboutUS.html"><font color="black">Tshirts</font></a></dd>
+			</dl>
+       	</div>
+  	</div>
+   
+  
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Content copyright 2010-2013. Thrive Bracelets. All rights reserved.</p>
+        </div>
+       
+      </div>
+    </div>
+  </footer>
+
+  <!-- Included JS Files -->
+  <script src="../public/assets/templates.js"></script>
+
+</body>
+</html>
+
+
